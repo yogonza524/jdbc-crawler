@@ -1,6 +1,8 @@
 # jdbc-crawler
 Simple Crawler for get data from a URL through CSS selector into PostgreSQL Database
 
+![Web crawler](https://i.imgur.com/38EE1IR.jpg)
+
 # Pre-requisites
 1. PostgreSQL Database Server 9.4+ (installed or remote connection)
 2. Maven (3.0+)
