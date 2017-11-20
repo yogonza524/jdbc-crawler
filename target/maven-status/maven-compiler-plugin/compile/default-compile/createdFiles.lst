@@ -1,0 +1,9 @@
+main/App.class
+hibernate/HibernateInitializr.class
+util/Arguments$TypeArg.class
+hibernate/Repository.class
+crawler/JCrawler.class
+util/Arguments.class
+config/Config.class
+hibernate/SQLManager.class
+model/Content.class

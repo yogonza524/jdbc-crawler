@@ -1,0 +1,8 @@
+/home/gonzalo/Escritorio/crawl-news/src/main/java/model/Content.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/hibernate/HibernateInitializr.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/hibernate/SQLManager.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/hibernate/Repository.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/crawler/JCrawler.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/config/Config.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/main/App.java
+/home/gonzalo/Escritorio/crawl-news/src/main/java/util/Arguments.java
