@@ -15,6 +15,7 @@ import com.soulgalore.crawler.core.PageURL;
 import config.Config;
 import crawler.JCrawler;
 import hibernate.Repository;
+import hibernate.SQLManager;
 import model.Content;
 import util.Arguments;
 import util.Arguments.TypeArg;
@@ -41,10 +42,21 @@ public class App {
 		
 		configParams(params);
 		
+		configDatabase();
+		
+		System.out.println("Crawling " + params.url + ". Please wait...");
+		
 		//Crawl process
 		Set<PageURL> pages = crawlWeb(params);
 		
 		download(pages);
+	}
+
+	private static void configDatabase() {
+		if (SQLManager.createContentTableIfNotExists()) {
+			System.out.println("content table created");
+		}
+		
 	}
 
 	private static Set<PageURL> crawlWeb(Arguments.TypeArg params) {
@@ -110,6 +122,12 @@ public class App {
 	private static void persist(String url,Document d) {
 		Content c = new Content();
 		c.setContent(d.select(Config.get().get("tagContent")).outerHtml());
+		
+		if (c.getContent().isEmpty()) {
+			//Empty result
+			return;
+		}
+		
 		c.setUrl(url);
 		
 		Repository<Content> rc = new Repository<Content>(Content.class);
@@ -147,6 +165,10 @@ public class App {
 		if (!params.type.equalsIgnoreCase("postgresql")) {
 			System.out.println("Is not valid another type than 'postgresql'");
 			System.exit(1);
+		}
+		
+		if (params.level > 0) {
+			System.out.println("Level of crawl: " + params.level);
 		}
 	}
 
